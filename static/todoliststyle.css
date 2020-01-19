@@ -1,0 +1,49 @@
+*{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#app{
+    width: 60%;
+    min-width: 300px;
+    margin: 10px auto;
+}
+
+#app h2{
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.todo-item{
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    overflow: hidden;
+    padding: 0;
+    cursor: pointer;
+}
+
+.todo-item h1{
+    font-size: 50px;
+    margin: 10px auto;
+    color: black;
+    text-align: center;
+
+}
+
+#app input{
+    margin: 10px auto;
+    width: 90%;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    outline: none;
+    border: none;
+    display: block;
+}

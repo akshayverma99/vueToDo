@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue To-Do</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="/static/todoliststyle.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        Vue.component("todoItem",{
+            template: `
+            <div @click="selected = !selected" class="todo-item">
+                <h1 v-if="!selected">{{ info }}</h1>
+                <h1 v-else><s>{{ info }}</s></h1>
+            </div>
+            `,
+            data: function(){
+                return {
+                    selected: false
+                }
+            },
+            props: ["info"]
+        })
+
+        let root = new Vue({
+            el: '#root',
+            data: {
+                listItems: [],
+                newItem: ""
+            },
+            template: `
+            <div id="app">
+                <h2>To-Do List</h2>
+                <todoItem v-for="item in listItems" :info="item" ></todoItem>
+                <input placeholder="Insert new item" v-model.trim="newItem" @keyup.enter="addNewItem">
+            </div>
+            `,
+            methods: {
+                addNewItem: function() {
+                    if(this.newItem != ""){
+                        this.listItems.push(this.newItem)
+                        this.newItem = ""
+                    }
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
